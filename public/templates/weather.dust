@@ -1,0 +1,24 @@
+{>"layouts/master" /}
+
+<title>What's up Waringstown - {title} </title>
+{<body}
+	<!-- Begin page content -->
+      <div class="container">
+
+	<div class="row">
+	<div class="col-md-12">
+	   <h2>What the weather is doing in Waringstown</h2>
+	   
+			  <ul>
+			 
+			    {#weathervals}
+			      <li> Weather Type {_id.weathertype} No Days  {count}</li>
+			    {/weathervals}
+			   
+			  </li>
+			 </ul>
+		 	 
+	</div>
+
+
+{/body}

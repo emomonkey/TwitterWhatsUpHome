@@ -1,0 +1,28 @@
+{>"layouts/master" /}
+
+<title>What's up Waringstown - {title} </title>
+{<body}
+	<div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h1>What's Up Waringstown</h1>
+        </div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <p class="lead">Developed in Node.js using the Krakenjs Suite using MongoDB database. Running on a 256 Raspberry PI. For the purpose of what counts as Waringstown for this web app it is the end of Dunkirk road to the top of Mill Hill. </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <img src="images/raspberry-pi.png" alt="PI" class="img-thumbnail">
+            </div>
+            <div class="col-md-6">
+            <img src="images/piGlow.jpg" alt="PI" class="img-thumbnail">
+            </div>
+          </div>
+      </div>
+  </div>
+{/body}

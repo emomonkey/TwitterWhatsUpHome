@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="page-header">
+    <meta charset="utf-8" />
+    <h1>{+title /}</h1>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Waringstown, Twitter, Nodejs, RaspberryPI">
+</head>
+
+<body>
+<!--<div id="wrapper"> -->
+<div class="container">
+ 	
+        <ul class="nav nav-pills pull-right">
+          <li {?home} class="active" {/home} > <a href="/">Home</a></li>
+          <li {?about} class="active" {/about}  ><a href="/about">About</a></li>
+          <li {?weather} class="active" {/weather}  ><a href="/weather">Weather</a></li>
+        </ul>
+        <h3 class="text-muted">What's up Waringstown</h3>
+      </div>
+
+      {+body /}
+
+      
+
+      <div class="footer">
+        <p>&copy; WaringstownSoft 2014 <a href="http://stephenemo.wordpress.com/"> For more Information and Contact Info</a> </p>
+      </div
+   
+ </div>
+
+   
+<!-- </div> -->
+
+<script data-main="js/app" src="components/requirejs/require.js"></script>
+
+<script type="text/javascript" src="/socket.io/socket.io.js"> </script>
+<script type="text/javascript" src="js/tweetlib.js"> </script>
+
+
+
+</body>
+</html>

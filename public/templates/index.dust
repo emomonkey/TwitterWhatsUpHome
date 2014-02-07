@@ -1,0 +1,47 @@
+{>"layouts/master" /}
+
+<title>What's up Waringstown</title>
+{<body}
+ 
+ 
+
+ 	  <div class="jumbotron">
+        <h2>TwitterSphere Updates for Waringstown</h2>
+        <p class="lead">Below is a live twitter feed from the Waringstown area plus  What's Hot in Waringstown on Twitter . </p>
+        <ul><small>
+          {#tmpreading} 
+           <li> Weather:{dateweather} Daytime:{dayweathertypetext} Temp: {daytemp} Nighttime: {nightweathertypetext} Temp: {daytemp} </li>
+          {/tmpreading}
+           </small>
+        </ul>    
+      </div>
+
+      
+      <div class="row">
+        <div class="col-md-6">
+           <h2>Last 100 Tweets</h2>
+           
+   		 	<div id="container"></div>
+ 		
+           
+        </div><!-- /.col-lg-4 -->
+        <div class="col-md-6">
+          
+          <h2>Top Tweets</h2>
+          <ul>
+         
+            {#tweethashs}
+              <li> HashTag {tweethashtag} Count {count}</li>
+            {/tweethashs}
+           
+          </li>
+         </ul>
+         
+         
+        </div><!-- /.col-lg-4 -->
+        
+      </div><!-- /.row -->
+
+{/body}
+
+
