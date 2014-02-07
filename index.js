@@ -157,10 +157,11 @@ kraken.create(app).listen(function (err, server) {
                 matches = tweettext.match(/#\S+/g);              
                 var  tweetsrc = matches;
                
-                 
+                 if (tweetsrc.length > 0)
+                 {
                  // check to see if hashtag exists
                  async.each(tweetsrc, tweetitemlib.counttweet);
-               
+                }
 
               }
 
