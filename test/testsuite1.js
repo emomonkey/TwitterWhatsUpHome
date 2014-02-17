@@ -62,6 +62,16 @@ describe("First Run DB Tests", function() {
       })
   })
 
+
+  it('This function should return a url', function(done){
+    tweetitemlib.calculategraph(function(result){
+        console.log('calcgraph');
+        console.log(result); 
+        expect(result).to.exist ? done(): done(false);
+    })
+
+  });
+
   it('This function should call webservice', function(done){
        var today = new Date();
        var dd = today.getDate(); 
@@ -75,5 +85,8 @@ describe("First Run DB Tests", function() {
               });
 
       });
+
+
+
    });
 

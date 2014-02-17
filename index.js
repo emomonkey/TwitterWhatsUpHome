@@ -9,7 +9,7 @@ var kraken = require('kraken-js'),
  tweetModel = require('./models/TweetHashTag'),
  async = require('async'),
  tweetitemlib = require('./lib/tweetitemfunc'),
-// tweetstream = require("twitter"),
+
  weatherDesc = require('./models/WeatherDescription'),
  tweethashtag = require('./models/TweetHashTag'),
  piglow = require('piglow'),
@@ -40,8 +40,10 @@ var tweetstm = new Twit({
       access_token_secret: '', secure: true
     });     
 
-
-
+// 'locations':'-6.317165, 54.427918, -6.2896, 54.444092'
+  var waringstown = ['-6.317165', '54.427918', '-6.2896', '54.444092']
+  var stream = tweetstm.stream('statuses/filter', {locations: waringstown}) 
+   var matches = new Array();
 
 
    
@@ -67,9 +69,13 @@ app.configure = function configure(nconf, next) {
        var yyyy = today.getFullYear(); 
        var datenow = dd + '/' + mm + '/' + yyyy;
       
+        tweetitemlib.retrieveweather(datenow,function(result){
+             console.log('retrieved weather'); 
+          
+          });
 
           
-            tweethashtag.remove({count: {$lte: 2}}, function(err){
+            tweethashtag.remove({count: {$lte: 4}}, function(err){
                 if (err){
                   console.log('error deleteing tweetcount');
                 }
@@ -77,7 +83,7 @@ app.configure = function configure(nconf, next) {
               }
             );
 
-          var date = new Date();
+        var date = new Date();
         var minutes = date.getMinutes();
         var hour = date.getHours();
         var year = date.getFullYear();
@@ -96,13 +102,10 @@ app.configure = function configure(nconf, next) {
          
          
           
-         tweetitemlib.retrieveweather(datenow,function(result){
-             console.log('retrieved weather'); 
-          
-          });
+        
            
       } catch (ex){console.log(ex.message);}
-      },12 * 60 * 60 * 1000);
+      },8 * 60 * 60 * 1000);
 
   
     next(null);
@@ -132,23 +135,15 @@ app.requestAfterRoute = function requestAfterRoute(server) {
 kraken.create(app).listen(function (err, server) {
     // for test
 
- 
 
-
-	  var io = require('socket.io').listen(server);
-     
-// 'locations':'-6.317165, 54.427918, -6.2896, 54.444092'
-  var waringstown = ['-6.317165', '54.427918', '-6.2896', '54.444092']
-	 var stream = tweetstm.stream('statuses/filter', {locations: waringstown}) 
+	var io = require('socket.io').listen(server);
+    
   
    stream.on('tweet',   function(data) {
-         
-           
-              var matches = new Array();
-             
-              
+            
               tweetarrs.push(data.text);
               tweettext = data.text;
+              
           
               if (tweettext.indexOf('#') > -1)
               {
@@ -157,10 +152,14 @@ kraken.create(app).listen(function (err, server) {
                 matches = tweettext.match(/#\S+/g);              
                 var  tweetsrc = matches;
                
+                if (tweetsrc != null )
+                {  
                  if (tweetsrc.length > 0)
                  {
                  // check to see if hashtag exists
                  async.each(tweetsrc, tweetitemlib.counttweet);
+                 }
+
                 }
 
               }

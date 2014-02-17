@@ -38,18 +38,11 @@ module.exports = function (server) {
                       tweethashs: tweets,
                       tmpreading: readings,
                       home: true,
-                      contact: false,
+                      weather: false,
                       about: false
                   };
           
-              /*   animation({interval:10, debug: true})
-                  .set().to(pi(['ring_0'])).after('0.1s')
-                  .set().to(pi(['ring_1'])).after('0.1s')
-                  .set().to(pi(['ring_2'])).after('0.1s')
-                  .repeat(3)
-                  .start(function() {
-        console.log('i looped 3 times, now Im done.');
-    });*/
+              
                  
                   res.render('index',model);
             
@@ -69,7 +62,7 @@ module.exports = function (server) {
                   {
                     tmpreading: readings,
                     home: false,
-                    contact: false,
+                    weather: false,
                     about: true
                   };
 
@@ -80,21 +73,19 @@ module.exports = function (server) {
     });
 
     server.get('/weather', function(req,res){
-
-    tweetitemlib.getgrpweather( function(results){
-       
-          var model = 
+      tweetitemlib.calculategraph(function(result){
+         var model = 
           {
-            weathervals: results,
+            weathervals: result,
             home: false,
-            contact: true,
+            weather: true,
             about: false
           };
         
         res.render('weather', model);
+      });
 
-    });
-    
+      
     });
 
 };

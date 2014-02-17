@@ -23,14 +23,16 @@
     "async" : "",
     "request": "",
     "piglow": "",
-    "twit" : "",
+    "twitter" : "",
     "mongoose" : "",
     "socket.io" : "",
-    "piglow" : ""
+    "piglow" : "",
+    "quiche" : ""
   },
   "devDependencies": {
     "mocha": "~1.10.0",
     "chai":"", 
+    "memwatch":"",
     "grunt": "~0.4.1",
     "grunt-contrib-less": "~0.7.0",
     "grunt-dustjs": "~1.1.1",

@@ -16,8 +16,8 @@
  	
         <ul class="nav nav-pills pull-right">
           <li {?home} class="active" {/home} > <a href="/">Home</a></li>
-          <li {?about} class="active" {/about}  ><a href="/about">About</a></li>
           <li {?weather} class="active" {/weather}  ><a href="/weather">Weather</a></li>
+          <li {?about} class="active" {/about}  ><a href="/about">About</a></li>
         </ul>
         <h3 class="text-muted">What's up Waringstown</h3>
       </div>
