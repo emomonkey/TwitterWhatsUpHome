@@ -12,5 +12,7 @@ The Twitter API can be retrieved from this location https://dev.twitter.com/
 
 The Met Office DataPoint Login can be found at http://datapoint.metoffice.gov.uk
 
+It also requires a PiGlow as the Raspberry PI glows according to the weather e.g. blue for rain, white for snow and orange for cloudy as well
+
 
 
